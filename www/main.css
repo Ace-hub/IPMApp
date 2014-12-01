@@ -1,0 +1,130 @@
+#main {   
+    width: 80%;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#categorySelection
+{
+    height: 550px;
+    position: absolute;
+    border: 2px solid gray;
+    top: 15px;
+    overflow: auto;
+}
+
+.image
+{
+    width: 100%;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.group
+{
+    display: none;
+    width: 0%;
+}
+
+.selected
+{
+    zoom: 200%;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -20px;
+}
+
+.adjacent
+{
+    zoom: 50%;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.beginButton 
+{
+    background-color: #0033CC;
+    color: white;
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 210%;
+    border: 1px solid #0099FF;
+    margin-top: 20px;
+    position: absolute;
+    left: 177px;
+}
+
+.beginButton:active
+{   
+    bacbackground-color: #3399FF;    
+}
+
+.title 
+{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    font-size: 18pt;
+}
+
+.name 
+{
+    position: relative;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    top: 40px;
+    font-size: 20pt;
+}
+
+.plant
+{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.arrow-up 
+{
+    width: 0;
+    height: 0;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-bottom: 20px solid blue;
+    position: fixed;
+    top: 20px;
+    left: 95px;   
+}
+
+.arrow-down 
+{
+    width: 0;
+    height: 0;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-top: 20px solid blue;
+    position: fixed;
+    top: 600px;
+    left: 95px;
+}
+
+.quiz
+{
+    width: 95%;
+    height: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
