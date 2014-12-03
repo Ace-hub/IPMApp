@@ -1,84 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>IPM Mock-up</title>
-    <link rel="stylesheet" href="main.css">
-<!--    <link href="lib/ionic/css/ionic.css" rel="stylesheet"> -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
-	<script src="js/app.js"></script>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=2, user-scalable=yes, width=device-width">
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Ionic Seed App</title>
 
-<body ng-app="ipmApp" ng-controller="ipmController">
-<div id="main">
-    <div id="page1" ng-show="page==0">
-        <div id="introduction">
-            <div class="title">Welcome</div>
-            <div class="text intro">
-                Please begin by pressing below. Other introduction text and other directions go here. Fillerfiller
-                fillerfiller fillerfillerfillerfiller
-                fillerfillerfillerfiller
-                fillerfillerfillerfillerfillerfiller
-                fillerfillerfillerfiller
-                fillerfiller
-                fillerfillerfillerfillerfillerfiller
-                fillerfillerfillerfillerfillerfillerfillerfiller
-                fillerfillerfillerfillerfillerfiller
-                fillerfillerfillerfillerfillerfillerfillerfillerfillerfiller
-                fillerfillerfillerfillerfillerfiller
-            </div>
-        </div>
-        <div class="beginButton" ng-click="nextPage()">Begin</div>
-    </div>
-    <div id="page2" ng-show="page==1" ng-swipe-right="index > 0 && indexDown()" ng-swipe-left="index < 4 && indexUp()">
-        <div id="categorySelection">
-            <div id="category" class="group" ng-repeat="category in categories" 
-                 ng-click="index==category.index && nextPage(); selectCategory(category.name)"
-                 ng-class="{selected: index==category.index, 
-                           adjacent: category.index >= 0 && ((index-1)==category.index || (index+1)==category.index)}">
-                <div class="name">{{category.name}}</div>
-                <img class="image" src="{{category.image}}">
-            </div>
-            <div class="arrow-up" ng-click="index > 0 && indexDown()"></div>
-            <div class="arrow-down" ng-click="index < 4 && indexUp()"></div>
-        </div>
-    </div>
-    <div id="page3" ng-show="page==2">
-    <div id="categorySelection">
-            <div id="plant" class="plant" ng-repeat="plant in subcategories | filter:category" 
-                 ng-click="nextPage();">
-                <div class="name">{{plant.name}}</div>
-                <img class="image" src="{{plant.image}}">
-            </div>
-        </div>
-    </div>
-    <div id="page4" ng-show="page==3">
-    <div id="categorySelection">
-            <div class="quiz">
-                Please answer the following questions. If you are unsure of any answer, simply leave the field blank.
-                <br>
-                <br>
-                <label for="q1">What color is the damage?</label>
-                <input type="text" id="q1">
-                <label for="q2">What is the temperature? (Celcius)</label>
-                <input type="number" id="q2">
-                <label for="q3">How much of the plant is off color?</label>
-                <input type="range" id="q3" max="100" min="0" step="1">
-                <label for="q4">When was the damage first recorded?</label>
-                <input type="date" id="q4">
-            </div>
-            <div class="beginButton" ng-click="nextPage()">Submit</div>
-        </div>
-    </div>
-    <div id="page5" ng-show="page==4">
-    <div id="categorySelection">
-            <div class="quiz">
-                You have aphids. Purging of vegetation through combustion is recommended.
-            </div>
-            <div class="beginButton" ng-click="resetPage()">Restart</div>
-        </div>
-    </div>
-</div>    
-</body>
+    <!-- ionic css -->
+    <link href="lib/css/ionic.css" rel="stylesheet">
+
+    <!-- your app's css -->
+    <link href="css/app.css" rel="stylesheet">
+
+    <!-- ionic/angularjs scripts -->
+    <script src="lib/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's script -->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+  </head>
+
+  <!-- 
+    'starter' is the name of this angular module (js/app.js)
+  -->
+  <body ng-app="starter" animation="slide-left-right-ios7">
+
+    <!-- 
+      The nav bar that will be updated as we navigate between views
+      Additional attributes set its look, ion-nav-bar animation and icons
+      Icons provided by Ionicons: http://ionicons.com/ 
+    -->
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button class="button-icon button-clear ion-ios7-arrow-back">
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <!-- 
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+
+  </body>
 </html>

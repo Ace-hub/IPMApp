@@ -1,64 +1,79 @@
-var ipmApp = angular.module('ipmApp', []);
+// Ionic Starter App
 
-ipmController = function ($scope)
-{
-    $scope.page = 0;
-    $scope.index = 0;
-    
-	var path = window.location
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
+// 'starter.controllers' is found in controllers.js
+angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
+
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
+
+    // setup an abstract state for the tabs directive
+    .state('tab', {
+      url: '/tab',
+      abstract: true,
+      templateUrl: 'templates/tabs.html'
+    })
+
+	// the pet tab has its own child nav-view and history
+    .state('tab.home', {
+      url: '/home',
+      views: {
+        'home-tab': {
+          templateUrl: 'templates/home.html',
+        }
+      }
+    })
 	
-    $scope.categories = 
-    [
-        {index: 0, name: "Vegetables", image: path + '../www/Images/vegetables.jpg'}, 
-        {index: 1, name: "Fruits", image: path + '../www/Images/fruits.jpg'}, 
-        {index: 2, name: "Greenhouse", image: path + '../www/Images/greenhouse.jpg'}, 
-        {index: 3, name: "Nursery", image: path + '../www/Images/nursery.jpg'},
-        {index: 4, name: "Landscape", image: path + '../www/Images/landscape.jpg'}
-    ];
-    
-    $scope.subcategories = 
-    [
-        {index: 0, category: "Vegetables", name: "Corn", image: path + '../www/Images/corn.jpg'}, 
-        {index: 1, category: "Fruits", name: "Apple", image: path + '../www/Images/apple.jpg'}, 
-        {index: 2, category: "Greenhouse", name: "Mums", image: path + '../www/Images/mums.jpg'}, 
-        {index: 3, category: "Nursery, Landscape", name: "Trees", image: path + '../www/Images/trees.jpg'},
-        {index: 4, category: "Landscape, Nursery", name: "Shrubs", image: path + '../www/Images/shrubs.jpg'},
-        {index: 5, category: "Vegetables", name: "Pepper", image: path + '../www/Images/pepper.jpg'}, 
-        {index: 6, category: "Vegetables", name: "Tomato", image: path + '../www/Images/tomato.jpg'}, 
-        {index: 7, category: "Vegetables", name: "Cucurbit", image: path + '../www/Images/cucurbit.jpg'}, 
-        {index: 8, category: "Fruits", name: "Peach", image: path + '../www/Images/peach.jpg'}, 
-        {index: 9, category: "Fruits", name: "Strawberry", image: path + '../www/Images/strawberry.jpg'}, 
-        {index: 10, category: "Fruits", name: "Blueberry", image: path + '../www/Images/blueberry.jpg'}, 
-        {index: 11, category: "Greenhouse", name: "Herbs", image: path + '../www/Images/herbs.jpg'}, 
-        {index: 12, category: "Greenhouse", name: "Holiday", image: path + '../www/Images/holidaycrops.jpg'}, 
-        {index: 13, category: "Landscape, Nursery", name: "Perennials", 
-         image: path + '../www/Images/perennials.jpg'}
-    ];
-    
-    $scope.selectCategory = function (category)
-    {
-        $scope.category = category;
-    }
-    
-    $scope.nextPage = function()
-    {
-        $scope.page++;
-        console.log($scope.page);
-    }
-    
-    $scope.resetPage = function()
-    {
-        $scope.page = 0;
-        console.log($scope.page);
-    }
-    
-    $scope.indexUp = function()
-    {
-        $scope.index++;
-    }
-    
-    $scope.indexDown = function()
-    {
-        $scope.index--;
-    }
-}
+    // the pet tab has its own child nav-view and history
+    .state('tab.pet-index', {
+      url: '/pets',
+      views: {
+        'pets-tab': {
+          templateUrl: 'templates/pet-index.html',
+          controller: 'PetIndexCtrl'
+        }
+      }
+    })
+
+    .state('tab.pet-detail', {
+      url: '/pet/:petId',
+      views: {
+        'pets-tab': {
+          templateUrl: 'templates/pet-detail.html',
+          controller: 'PetDetailCtrl'
+        }
+      }
+    })
+
+    .state('tab.adopt', {
+      url: '/adopt',
+      views: {
+        'adopt-tab': {
+          templateUrl: 'templates/adopt.html'
+        }
+      }
+    })
+
+    .state('tab.about', {
+      url: '/about',
+      views: {
+        'about-tab': {
+          templateUrl: 'templates/about.html'
+        }
+      }
+    });
+
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/tab/home');
+
+});
+
