@@ -1,0 +1,52 @@
+<!--
+  This template loads for the 'tab.pet-detail' state (app.js)
+  'pet' is a $scope variable created in the PetCtrl controller (controllers.js)
+  The PetCtrl pulls data from the Pets service (service.js)
+  The Pets service returns an array of pet data
+-->
+<ion-view title="Survey">
+  <ion-content padding="true">     
+    <p><a class="button button-small icon ion-arrow-left-b" href="#/tab/pets"> Back</a></p>
+	<br>
+	<br>
+	<h3>Leaf:</h3>
+	<ion-checkbox>Discolored</ion-checkbox>
+	<ion-checkbox>Holes</ion-checkbox>
+	<ion-checkbox>Bites</ion-checkbox>
+	<ion-checkbox>Spots</ion-checkbox>
+	<ion-checkbox>Defoliated</ion-checkbox>
+	<ion-checkbox>Leaf Mold/Rot</ion-checkbox>
+	<ion-checkbox>Distorted</ion-checkbox>
+	<br>
+
+	<h3>Fruit:</h3>
+	<ion-checkbox>Discolored</ion-checkbox>
+	<ion-checkbox>Holes</ion-checkbox>
+	<ion-checkbox>Bites</ion-checkbox>
+	<ion-checkbox>Spots</ion-checkbox>
+	<ion-checkbox>Defoliated</ion-checkbox>
+	<ion-checkbox>Mold/Rot</ion-checkbox>
+	<ion-checkbox>Bumps</ion-checkbox>
+	<ion-checkbox>Scars</ion-checkbox>
+
+	<h3>Bugs:</h3>
+	<ion-toggle ng-model="bugs">Bugs</ion-toggle>
+	<ion-checkbox ng-show="bugs">Beetle</ion-checkbox>
+	<ion-checkbox ng-show="bugs">Maggot</ion-checkbox>
+	<ion-checkbox ng-show="bugs">Caterpillar</ion-checkbox>
+	<ion-checkbox ng-show="bugs">Moths</ion-checkbox>
+	<ion-checkbox ng-show="bugs">Aphids/Mites</ion-checkbox>
+
+	<h3>Stalk/Branches:</h3>
+	<ion-checkbox>Discolored</ion-checkbox>
+	<ion-checkbox>Holes</ion-checkbox>
+	<ion-checkbox>Mold/Rot</ion-checkbox>
+	<ion-checkbox>Girdled</ion-checkbox>
+	<ion-checkbox>Flower Damage</ion-checkbox>
+	<ion-checkbox>Stunted Growth</ion-checkbox>
+	<ion-checkbox>Dead Plant</ion-checkbox>
+	<ion-checkbox>Multiple Adjacent Plants Affected</ion-checkbox>
+	<br>
+	<p><a class="button button-small icon ion-arrow-left-b" href="#/tab/result"> Submit</a></p>
+  </ion-content>
+</ion-view>

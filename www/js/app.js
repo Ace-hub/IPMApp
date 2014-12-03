@@ -53,7 +53,25 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
         }
       }
     })
+	
+	.state('tab.survey', {
+      url: '/survey',
+      views: {
+        'pets-tab': {
+          templateUrl: 'templates/survey.html',          
+        }
+      }
+    })
 
+	.state('tab.result', {
+      url: '/result',
+      views: {
+        'pets-tab': {
+          templateUrl: 'templates/result.html',          
+        }
+      }
+    })
+	
     .state('tab.adopt', {
       url: '/adopt',
       views: {
