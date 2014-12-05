@@ -1,0 +1,19 @@
+<!-- 
+  This template gets placed in the ipm tab's <ion-nav-view> directive.
+  It was wired up in the app config (app.js) 
+  The 'ipms' data comes from its $scope within ipmIndexCtrl (controller.js)
+-->
+<ion-view title="Categories">
+  <ion-content>
+
+    <ion-list>
+
+      <ion-item ng-repeat="ipm in ipms" type="item-text-wrap" href="#/tab/ipm/{{ipm.id}}">
+        <h3>{{ipm.title}}</h3>
+        <p>{{ipm.description}}</p>
+      </ion-item>
+      
+    </ion-list>
+
+  </ion-content>
+</ion-view>

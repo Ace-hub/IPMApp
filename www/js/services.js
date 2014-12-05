@@ -3,7 +3,7 @@ angular.module('starter.services', [])
 /**
  * A simple example service that returns some data.
  */
-.factory('PetService', function() {
+.factory('IPMService', function() {
   // Might use a resource here that returns a JSON array
   var subcategories = 
     [
@@ -25,7 +25,7 @@ angular.module('starter.services', [])
     ];
 	
   // Some fake testing data
-  var pets = [
+  var IPMs = [
     { id: 0, title: 'Vegetables', description: 'Plants in the vegetable category.' },
     { id: 1, title: 'Fruits', description: 'Seeded fruits.' },
     { id: 2, title: 'Greenhouse', description: 'Greenhouse-grown plants.' },
@@ -35,11 +35,11 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-      return pets;
+      return IPMs;
     },
-    get: function(petId) {
+    get: function(IPMId) {
       // Simple index lookup
-      return pets[petId];
+      return IPMs[IPMId];
     },
 	sub: function() {
 		return subcategories;

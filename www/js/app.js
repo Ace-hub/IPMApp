@@ -23,7 +23,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       templateUrl: 'templates/tabs.html'
     })
 
-	// the pet tab has its own child nav-view and history
+	// the ipm tab has its own child nav-view and history
     .state('tab.home', {
       url: '/home',
       views: {
@@ -33,23 +33,23 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       }
     })
 	
-    // the pet tab has its own child nav-view and history
-    .state('tab.pet-index', {
-      url: '/pets',
+    // the ipm tab has its own child nav-view and history
+    .state('tab.ipm-index', {
+      url: '/ipm',
       views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-index.html',
-          controller: 'PetIndexCtrl'
+        'ipm-tab': {
+          templateUrl: 'templates/ipm-index.html',
+          controller: 'ipmIndexCtrl'
         }
       }
     })
 
-    .state('tab.pet-detail', {
-      url: '/pet/:petId',
+    .state('tab.ipm-detail', {
+      url: '/ipm/:ipmId',
       views: {
-        'pets-tab': {
-          templateUrl: 'templates/pet-detail.html',
-          controller: 'PetDetailCtrl'
+        'ipm-tab': {
+          templateUrl: 'templates/ipm-detail.html',
+          controller: 'ipmDetailCtrl'
         }
       }
     })
@@ -57,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 	.state('tab.survey', {
       url: '/survey',
       views: {
-        'pets-tab': {
+        'ipm-tab': {
           templateUrl: 'templates/survey.html',          
         }
       }
@@ -66,17 +66,17 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 	.state('tab.result', {
       url: '/result',
       views: {
-        'pets-tab': {
+        'ipm-tab': {
           templateUrl: 'templates/result.html',          
         }
       }
     })
 	
-    .state('tab.adopt', {
-      url: '/adopt',
+    .state('tab.feedback', {
+      url: '/feedback',
       views: {
-        'adopt-tab': {
-          templateUrl: 'templates/adopt.html'
+        'feedback-tab': {
+          templateUrl: 'templates/feedback.html'
         }
       }
     })
