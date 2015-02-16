@@ -1,6 +1,4 @@
-ionic-angular-cordova-seed
+UConn IPM App
 ==========================
 
-The perfect starting point for an Ionic project.
-
-- [Ionic Tutorials](http://ionicframework.com/tutorials/)
+IPM App designed by UConn 2014-2015 Senior Design group B.
