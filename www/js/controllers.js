@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ipmSurveyCtrl', function($scope, $stateParams, $http) {	
-	var path = 'http://localhost:8080/response?';
+	var path = 'http://10.0.3.2:8080/response?';
 	$scope.page = 0;
 	$scope.leaf = {};
 	$scope.fruit = {};
