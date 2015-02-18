@@ -58,7 +58,8 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       url: '/survey',
       views: {
         'ipm-tab': {
-          templateUrl: 'templates/survey.html',          
+          templateUrl: 'templates/survey.html', 
+		  controller: 'ipmSurveyCtrl'
         }
       }
     })
@@ -67,7 +68,8 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       url: '/result',
       views: {
         'ipm-tab': {
-          templateUrl: 'templates/result.html',          
+          templateUrl: 'templates/result.html',    
+		  controller: 'ipmSurveyCtrl'
         }
       }
     })
