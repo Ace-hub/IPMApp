@@ -31,13 +31,19 @@ angular.module('starter.controllers', [])
 		fruitData();
 		console.log($scope.leafReq);
 		$scope.page++;
-		path += "leaf=" + $scope.leafReq + "?fruit=" + $scope.fruitReq;
+		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq;
 		console.log(path);
 		$http.get(path).success(function(data) 
 		{
             $scope.response = data;
-			$scope.$apply();
-        });
+			console.log(data);
+			$scope.names = $scope.response.name;
+			$scope.content = $scope.response.content;
+        }).
+		error(function(data) 
+		{
+			$scope.names = "Sorry, no connection with the server could be established. Please try again later."
+		});
 	}
 	
 	$scope.restart = function()
@@ -50,65 +56,65 @@ angular.module('starter.controllers', [])
 	{
 		if ($scope.leaf.discolored)
 		{
-			$scope.leafReq += "1";
+			$scope.leafReq += "1,";
 		}
 		if (!$scope.leaf.discolored)
 		{
-			$scope.leafReq += "0";
+			$scope.leafReq += "0,";
 		}
 		
 		if ($scope.leaf.holes)
 		{
-			$scope.leafReq += "1";
+			$scope.leafReq += "1,";
 		}
 		if (!$scope.leaf.holes)
 		{
-			$scope.leafReq += "0";
+			$scope.leafReq += "0,";
 		}
 		
 		if ($scope.leaf.bites)
 		{
-			$scope.leafReq += "1";
+			$scope.leafReq += "1,";
 		}
 		if (!$scope.leaf.bites)
 		{
-			$scope.leafReq += "0";
+			$scope.leafReq += "0,";
 		}
 		
 		if ($scope.leaf.spots)
 		{
-			$scope.leafReq += "1";
+			$scope.leafReq += "1,";
 		}
 		if (!$scope.leaf.spots)
 		{
-			$scope.leafReq += "0";
+			$scope.leafReq += "0,";
 		}	
 		
 		if ($scope.leaf.defoliated)
 		{
-			$scope.leafReq += "1";
+			$scope.leafReq += "1,";
 		}
 		if (!$scope.leaf.defoliated)
 		{
-			$scope.leafReq += "0";
+			$scope.leafReq += "0,";
 		}
 		
 		if ($scope.leaf.leafMold)
 		{
-			$scope.leafReq += "1";
+			$scope.leafReq += "1,";
 		}
 		if (!$scope.leaf.leafMold)
 		{
-			$scope.leafReq += "0";
+			$scope.leafReq += "0,";
 		}		
 		
 		if ($scope.leaf.distorted)
 		{
-			$scope.leafReq += "1";
+			$scope.leafReq += "1,";
 		}
 		if (!$scope.leaf.distorted)
 		{
-			$scope.leafReq += "0";
+			$scope.leafReq += "0,";
 		}		
 	}
 	
@@ -116,74 +122,74 @@ angular.module('starter.controllers', [])
 	{
 		if ($scope.fruit.discolored)
 		{
-			$scope.fruitReq += "1";
+			$scope.fruitReq += "1,";
 		}
 		if (!$scope.fruit.discolored)
 		{
-			$scope.fruitReq += "0";
+			$scope.fruitReq += "0,";
 		}
 		
 		if ($scope.fruit.holes)
 		{
-			$scope.fruitReq += "1";
+			$scope.fruitReq += "1,";
 		}
 		if (!$scope.fruit.holes)
 		{
-			$scope.fruitReq += "0";
+			$scope.fruitReq += "0,";
 		}
 		
 		if ($scope.fruit.bites)
 		{
-			$scope.fruitReq += "1";
+			$scope.fruitReq += "1,";
 		}
 		if (!$scope.fruit.bites)
 		{
-			$scope.fruitReq += "0";
+			$scope.fruitReq += "0,";
 		}
 		
 		if ($scope.fruit.spots)
 		{
-			$scope.fruitReq += "1";
+			$scope.fruitReq += "1,";
 		}
 		if (!$scope.fruit.spots)
 		{
-			$scope.fruitReq += "0";
+			$scope.fruitReq += "0,";
 		}	
 		
 		if ($scope.fruit.defoliated)
 		{
-			$scope.fruitReq += "1";
+			$scope.fruitReq += "1,";
 		}
 		if (!$scope.fruit.defoliated)
 		{
-			$scope.fruitReq += "0";
+			$scope.fruitReq += "0,";
 		}
 		
 		if ($scope.fruit.mold)
 		{
-			$scope.fruitReq += "1";
+			$scope.fruitReq += "1,";
 		}
 		if (!$scope.fruit.mold)
 		{
-			$scope.fruitReq += "0";
+			$scope.fruitReq += "0,";
 		}		
 		
 		if ($scope.fruit.bumps)
 		{
-			$scope.fruitReq += "1";
+			$scope.fruitReq += "1,";
 		}
 		if (!$scope.fruit.bumps)
 		{
-			$scope.fruitReq += "0";
+			$scope.fruitReq += "0,";
 		}		
 		
 		if ($scope.fruit.scars)
 		{
-			$scope.fruitReq += "1";
+			$scope.fruitReq += "1,";
 		}
 		if (!$scope.fruit.scars)
 		{
-			$scope.fruitReq += "0";
+			$scope.fruitReq += "0,";
 		}	
 	}
 });
