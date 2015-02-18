@@ -2,4 +2,3 @@
 *
 # Except this file
 !.gitignore
-!/android/ant-build/*

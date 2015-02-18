@@ -16,6 +16,7 @@ angular.module('starter.controllers', [])
 
 .controller('ipmSurveyCtrl', function($scope, $stateParams, $http) {	
 	var path = 'http://10.0.3.2:8080/response?';
+	// var path = 'http://localhost:8080/response?';
 	$scope.page = 0;
 	$scope.leaf = {};
 	$scope.fruit = {};
@@ -23,6 +24,7 @@ angular.module('starter.controllers', [])
 	$scope.branches = {};
 	$scope.leafReq = "";
 	$scope.fruitReq = "";
+	$scope.ResultList = [];
 	
 	$scope.submitData = function()
 	{
@@ -39,6 +41,23 @@ angular.module('starter.controllers', [])
 			console.log(data);
 			$scope.names = $scope.response.name;
 			$scope.content = $scope.response.content;
+			
+			angular.forEach($scope.names, function(obj, key) {
+				if (obj.length > 0)
+				{
+					var elem = {Name: obj, Content: ""};
+					elem.Content = $scope.content[key];
+					$scope.ResultList.push(elem);
+				}
+			});		
+			
+			if ($scope.ResultList.length < 1)
+			{
+				var empty = {Name: "", Content: "Sorry, no results were returned by this query."};
+				$scope.ResultList.push(empty);
+			}
+			
+			console.log($scope.ResultList);
         }).
 		error(function(data) 
 		{
