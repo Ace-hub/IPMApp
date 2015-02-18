@@ -65,6 +65,11 @@ angular.module('starter.controllers', [])
 		});
 	}
 	
+	$scope.back = function()
+	{
+		$scope.page--;
+	}
+	
 	$scope.restart = function()
 	{
 		$scope.page = 0;
