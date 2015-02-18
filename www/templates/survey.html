@@ -1,10 +1,4 @@
-<!--
-  This template loads for the 'tab.pet-detail' state (app.js)
-  'pet' is a $scope variable created in the PetCtrl controller (controllers.js)
-  The PetCtrl pulls data from the ipm service (service.js)
-  The ipm service returns an array of pet data
--->
-<ion-view title="Survey">
+<ion-view title="Survey" ng-show="page == 0">
   <ion-content padding="true">     
     <p><a class="button button-small icon ion-arrow-left-b" href="#/tab/ipm"> Back</a></p>
 	<br>
@@ -50,3 +44,18 @@
 	<p><a class="button button-small icon ion-arrow-right-b" ng-click="submitData()"> Submit</a></p>
   </ion-content>
 </ion-view>
+
+<ion-view title="Results" ng-show="page == 1">
+  <ion-content padding="true">
+    <img src="img/ionic.png" class="ionic-logo">
+    <p>
+	<div>
+		{{response.name}}
+		<br>
+		{{response.content}}
+	</div>
+    </p>
+	<p><a class="button button-small icon ion-arrow-left-b" ng-click="restart()"> Back to Home</a></p>
+  </ion-content>
+</ion-view>
+

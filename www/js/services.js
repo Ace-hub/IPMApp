@@ -21,7 +21,8 @@ angular.module('starter.services', [])
         {index: 11, category: "Greenhouse", name: "Herbs", image: '../Images/herbs.jpg'}, 
         {index: 12, category: "Greenhouse", name: "Holiday", image: '../Images/holidaycrops.jpg'}, 
         {index: 13, category: "Landscape, Nursery", name: "Perennials", 
-         image: '../Images/perennials.jpg'}
+         image: '../Images/perennials.jpg'},
+		{index: 14, category: "Fruits", name: "Eggplant", image: '../Images/peach.jpg'}, 
     ];
 	
   // Some fake testing data
