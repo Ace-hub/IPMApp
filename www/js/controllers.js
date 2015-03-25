@@ -5,6 +5,10 @@ angular.module('starter.controllers', [])
 .controller('ipmIndexCtrl', function($scope, IPMService) {
 	// "IPMs" is a service returning mock data (services.js)
 	$scope.ipms = IPMService.all();
+	$scope.generatePath = function(str)
+	{
+		return "img/" + str + ".jpg";
+	}
 })
 
 
@@ -12,6 +16,10 @@ angular.module('starter.controllers', [])
 .controller('ipmDetailCtrl', function($scope, $stateParams, IPMService) {
 	// "IPMs" is a service returning mock data (services.js)
 	$scope.ipm = IPMService.sub();
+	$scope.generatePath = function(str)
+	{
+		return "img/" + str + ".jpg";
+	}
 })
 
 .controller('ipmSurveyCtrl', function($scope, $stateParams, $http) {	
@@ -50,8 +58,16 @@ angular.module('starter.controllers', [])
 					var intermediate = elem.Name.split(" ");
 					while ( i < intermediate.length-1)
 					{
+						if (i > 0)
+						{
+							intermediate[i] = intermediate[i].toLowerCase();
+						}
 						elem.Help = elem.Help + intermediate[i] + "_";
 						i++;
+					}
+					if (i > 0)
+					{
+						intermediate[i] = intermediate[i].toLowerCase();
 					}
 					elem.Help += intermediate[i];
 					console.log(elem.Help);

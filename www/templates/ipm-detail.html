@@ -2,7 +2,7 @@
 	<ion-content padding="true">
 		<ion-item ng-repeat="plant in ipm | filter: category" type="item-text-wrap" href="#/tab/survey">
 			<h3>{{plant.name}}</h3>    
-			<img src="Images/{{plant.name}}.jpg" class="backgroundIMG">		
+			<img ng-src="{{generatePath(plant.name)}}" style="position: absolute; top: -50%; left: -20%; width: 130%; opacity: .3;"></img>	
 		</ion-item>
 	
 		<br>

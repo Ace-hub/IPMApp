@@ -6,7 +6,7 @@
       <ion-item ng-repeat="ipm in ipms" type="item-text-wrap" href="#/tab/ipm/{{ipm.id}}">
         <h3>{{ipm.title}}</h3>
         <p>{{ipm.description}}</p>
-		<img src="Images/{{ipm.title}}.jpg" class="backgroundIMG">
+		<img ng-src="{{generatePath(ipm.title)}}" style="position: absolute; top: -50%; left: -20%; width: 130%; opacity: .3;"></img>
       </ion-item>
       
     </ion-list>
