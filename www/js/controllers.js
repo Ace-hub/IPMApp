@@ -45,7 +45,16 @@ angular.module('starter.controllers', [])
 			angular.forEach($scope.names, function(obj, key) {
 				if (obj.length > 0)
 				{
-					var elem = {Name: obj, Content: ""};
+					var i = 0;
+					var elem = {Name: obj, Content: "", Help: "http://en.wikipedia.org/wiki/"};
+					var intermediate = elem.Name.split(" ");
+					while ( i < intermediate.length-1)
+					{
+						elem.Help = elem.Help + intermediate[i] + "_";
+						i++;
+					}
+					elem.Help += intermediate[i];
+					console.log(elem.Help);
 					elem.Content = $scope.content[key];
 					$scope.ResultList.push(elem);
 				}

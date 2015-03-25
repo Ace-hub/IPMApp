@@ -1,7 +1,8 @@
 <ion-view title="Subcategories">
 	<ion-content padding="true">
 		<ion-item ng-repeat="plant in ipm | filter: category" type="item-text-wrap" href="#/tab/survey">
-			<h3>{{plant.name}}</h3>        
+			<h3>{{plant.name}}</h3>    
+			<img src="Images/{{plant.name}}.jpg" class="backgroundIMG">		
 		</ion-item>
 	
 		<br>

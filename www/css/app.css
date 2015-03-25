@@ -6,3 +6,12 @@
   width: 150px;
   height: 96px;
 }
+
+.backgroundIMG
+{
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  opacity: 0.3;
+  width: 130%;
+}
