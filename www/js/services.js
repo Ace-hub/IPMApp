@@ -7,22 +7,21 @@ angular.module('starter.services', [])
   // Might use a resource here that returns a JSON array
   var subcategories = 
     [
-        {index: 0, category: "Vegetables", name: "Corn", image: '../Images/corn.jpg'}, 
-        {index: 1, category: "Fruits", name: "Apple", image: '../Images/apple.jpg'}, 
-        {index: 2, category: "Greenhouse", name: "Mums", image: '../Images/mums.jpg'}, 
-        {index: 3, category: "Nursery, Landscape", name: "Trees", image: '../Images/trees.jpg'},
-        {index: 4, category: "Landscape, Nursery", name: "Shrubs", image: '../Images/shrubs.jpg'},
-        {index: 5, category: "Vegetables", name: "Pepper", image: '../Images/pepper.jpg'}, 
-        {index: 6, category: "Vegetables", name: "Tomato", image: '../Images/tomato.jpg'}, 
-        {index: 7, category: "Vegetables", name: "Cucurbit", image: '../Images/cucurbit.jpg'}, 
-        {index: 8, category: "Fruits", name: "Peach", image: '../Images/peach.jpg'}, 
-        {index: 9, category: "Fruits", name: "Strawberry", image: '../Images/strawberry.jpg'}, 
-        {index: 10, category: "Fruits", name: "Blueberry", image: '../Images/blueberry.jpg'}, 
-        {index: 11, category: "Greenhouse", name: "Herbs", image: '../Images/herbs.jpg'}, 
-        {index: 12, category: "Greenhouse", name: "Holiday", image: '../Images/holidaycrops.jpg'}, 
-        {index: 13, category: "Landscape, Nursery", name: "Perennials", 
-         image: '../Images/perennials.jpg'},
-		{index: 14, category: "Fruits", name: "Eggplant", image: '../Images/peach.jpg'}, 
+        {index: 0, category: "Vegetables", name: "Corn"}, 
+        {index: 1, category: "Fruits", name: "Apple"}, 
+        {index: 2, category: "Greenhouse", name: "Mums"}, 
+        {index: 3, category: "Nursery, Landscape", name: "Trees"},
+        {index: 4, category: "Landscape, Nursery", name: "Shrubs"},
+        {index: 5, category: "Vegetables", name: "Pepper"}, 
+        {index: 6, category: "Vegetables", name: "Tomato"}, 
+        {index: 7, category: "Vegetables", name: "Cucurbit"}, 
+        {index: 8, category: "Fruits", name: "Peach"}, 
+        {index: 9, category: "Fruits", name: "Strawberry"}, 
+        {index: 10, category: "Fruits", name: "Blueberry"}, 
+        {index: 11, category: "Greenhouse", name: "Herbs"}, 
+        {index: 12, category: "Greenhouse", name: "Holiday"}, 
+        {index: 13, category: "Landscape, Nursery", name: "Perennials"},
+		{index: 14, category: "Fruits", name: "Eggplant"}, 
     ];
 	
   // Some fake testing data
