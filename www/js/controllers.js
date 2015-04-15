@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 	$scope.ipms = IPMService.all();
 	$scope.generatePath = function(str)
 	{
-		return "img/" + str + ".jpg";
+		return "img/" + str.toLowerCase() + ".JPG";
 	}
 })
 
@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
 	$scope.ipm = IPMService.sub();
 	$scope.generatePath = function(str)
 	{
-		return "img/" + str + ".jpg";
+		return "img/" + str.toLowerCase() + ".JPG";
 	}
 })
 
