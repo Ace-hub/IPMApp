@@ -32,6 +32,8 @@ angular.module('starter.controllers', [])
 	$scope.branches = {};
 	$scope.leafReq = "";
 	$scope.fruitReq = "";
+	$scope.bugsReq = "";
+	$scope.branchesReq = "";
 	$scope.ResultList = [];
 	
 	$scope.submitData = function()
@@ -39,9 +41,11 @@ angular.module('starter.controllers', [])
 		console.log("get");
 		leafData();
 		fruitData();
+		bugsData();
+		branchesData();
 		console.log($scope.leafReq);
 		$scope.page++;
-		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq;
+		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq + "&bugs=" + $scope.bugsReq + "&branches" + $scope.branchesReq;
 		console.log(path);
 		$http.get(path).success(function(data) 
 		{
@@ -294,74 +298,74 @@ angular.module('starter.controllers', [])
 	{
 		if ($scope.branches.discolored)
 		{
-			$scope.bugsReq += "1,";
+			$scope.branchesReq += "1,";
 		}
 		if (!$scope.branches.discolored)
 		{
-			$scope.bugsReq += "0,";
+			$scope.branchesReq += "0,";
 		}
 
 		if ($scope.branches.holes)
 		{
-			$scope.bugsReq += "1,";
+			$scope.branchesReq += "1,";
 		}
 		if (!$scope.branches.holes)
 		{
-			$scope.bugsReq += "0,";
+			$scope.branchesReq += "0,";
 		}
 
 		if ($scope.branches.mold)
 		{
-			$scope.bugsReq += "1,";
+			$scope.branchesReq += "1,";
 		}
 		if (!$scope.branches.mold)
 		{
-			$scope.bugsReq += "0,";
+			$scope.branchesReq += "0,";
 		}
 
 		if ($scope.branches.girdled)
 		{
-			$scope.bugsReq += "1,";
+			$scope.branchesReq += "1,";
 		}
 		if (!$scope.branches.girdled)
 		{
-			$scope.bugsReq += "0,";
+			$scope.branchesReq += "0,";
 		}
 
 		if ($scope.branches.flower)
 		{
-			$scope.bugsReq += "1,";
+			$scope.branchesReq += "1,";
 		}
 		if (!$scope.branches.flower)
 		{
-			$scope.bugsReq += "0,";
+			$scope.branchesReq += "0,";
 		}
 
 		if ($scope.branches.stunted)
 		{
-			$scope.bugsReq += "1,";
+			$scope.branchesReq += "1,";
 		}
 		if (!$scope.branches.stunted)
 		{
-			$scope.bugsReq += "0,";
+			$scope.branchesReq += "0,";
 		}
 
 		if ($scope.branches.dead)
 		{
-			$scope.bugsReq += "1,";
+			$scope.branchesReq += "1,";
 		}
 		if (!$scope.branches.dead)
 		{
-			$scope.bugsReq += "0,";
+			$scope.branchesReq += "0,";
 		}
 
 		if ($scope.branches.multi)
 		{
-			$scope.bugsReq += "1,";
+			$scope.branchesReq += "1,";
 		}
 		if (!$scope.branches.multi)
 		{
-			$scope.bugsReq += "0,";
+			$scope.branchesReq += "0,";
 		}
 	}
 });
