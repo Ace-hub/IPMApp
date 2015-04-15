@@ -241,4 +241,127 @@ angular.module('starter.controllers', [])
 			$scope.fruitReq += "0,";
 		}	
 	}
+	
+	var bugsData = function()
+	{
+		if ($scope.bugs.beetle)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.bugs.beetle)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.bugs.maggot)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.bugs.maggot)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.bugs.caterpillar)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.bugs.caterpillar)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.bugs.moths)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.bugs.moths)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.bugs.aphids)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.bugs.aphids)
+		{
+			$scope.bugsReq += "0,";
+		}
+	}
+
+	var branchesData = function()
+	{
+		if ($scope.branches.discolored)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.branches.discolored)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.branches.holes)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.branches.holes)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.branches.mold)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.branches.mold)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.branches.girdled)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.branches.girdled)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.branches.flower)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.branches.flower)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.branches.stunted)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.branches.stunted)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.branches.dead)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.branches.dead)
+		{
+			$scope.bugsReq += "0,";
+		}
+
+		if ($scope.branches.multi)
+		{
+			$scope.bugsReq += "1,";
+		}
+		if (!$scope.branches.multi)
+		{
+			$scope.bugsReq += "0,";
+		}
+	}
 });
