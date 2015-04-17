@@ -49,35 +49,35 @@
 		<div class="input-label">
 			Number of Pests Observed: 
 		</div>
-		<select>
-		  <option selected>< 10</option>
-		  <option>10 to 50</option>
-		  <option>51 to 100</option>
-		  <option>> 100</option>
+		<select ng-model="pestNumber">
+		  <option value="1" selected>< 10</option>
+		  <option value="2">10 to 50</option>
+		  <option value="3">51 to 100</option>
+		  <option value="4">> 100</option>
 		</select>
 	</label>	
 	<label class="item item-input item-select">
 		<div class="input-label">
 			Percent of Plant Afflicted: 
 		</div>
-		<select>
-		  <option selected>< 10%</option>
-		  <option>10%-25%</option>
-		  <option>26%-50%</option>
-		  <option>51%-75%</option>
-		  <option>76%-100%</option>
+		<select ng-model="plantPercent">
+		  <option value="1" selected>< 10%</option>
+		  <option value="2">10%-25%</option>
+		  <option value="3">26%-50%</option>
+		  <option value="4">51%-75%</option>
+		  <option value="5">76%-100%</option>
 		</select>
 	</label>	
 	<label class="item item-input item-select">
 		<div class="input-label">
 			Number of Plants Afflicted: 
 		</div>
-		<select>
-		  <option selected>1</option>
-		  <option>2-5</option>
-		  <option>6-10</option>
-		  <option>11-20</option>
-		  <option>> 20</option>
+		<select ng-model="plantNumber">
+		  <option value="1" selected>1</option>
+		  <option value="2">2-5</option>
+		  <option value="3">6-10</option>
+		  <option value="4">11-20</option>
+		  <option value="5">> 20</option>
 		</select>
 	</label>
 	
