@@ -3,45 +3,93 @@
     <p><a class="button button-small icon ion-arrow-left-b" href="#/tab/ipm"> Back</a></p>
 	<br>
 	<br>
-	<h3>Leaf:</h3>
-	<ion-checkbox ng-model="leaf.discolored">Discolored</ion-checkbox>
-	<ion-checkbox ng-model="leaf.holes">Holes</ion-checkbox>
-	<ion-checkbox ng-model="leaf.bites">Bites</ion-checkbox>
-	<ion-checkbox ng-model="leaf.spots">Spots</ion-checkbox>
-	<ion-checkbox ng-model="leaf.defoliated">Defoliated</ion-checkbox>
-	<ion-checkbox ng-model="leaf.leafMold">Leaf Mold/Rot</ion-checkbox>
-	<ion-checkbox ng-model="leaf.distorted">Distorted</ion-checkbox>
+	
+	<h2>Symptoms</h2>
+	
+	<h3>plant:</h3>
+	<ion-checkbox ng-model="plant.discolored">Discolored</ion-checkbox>
+	<ion-checkbox ng-model="plant.holes">Holes</ion-checkbox>
+	<ion-checkbox ng-model="plant.spots">Spots</ion-checkbox>
+	<ion-checkbox ng-model="plant.defoliated">Defoliated</ion-checkbox>
+	<ion-checkbox ng-model="plant.plantMold">Rot/Dieback</ion-checkbox>
+	<ion-checkbox ng-model="plant.distorted">Distorted</ion-checkbox>
 	<br>
 
 	<h3>Fruit:</h3>
 	<ion-checkbox ng-model="fruit.discolored">Discolored</ion-checkbox>
 	<ion-checkbox ng-model="fruit.holes">Holes</ion-checkbox>
-	<ion-checkbox ng-model="fruit.bites">Bites</ion-checkbox>
 	<ion-checkbox ng-model="fruit.spots">Spots</ion-checkbox>
-	<ion-checkbox ng-model="fruit.defoliated">Defoliated</ion-checkbox>
-	<ion-checkbox ng-model="fruit.mold">Mold/Rot</ion-checkbox>
-	<ion-checkbox ng-model="fruit.bumps">Bumps</ion-checkbox>
-	<ion-checkbox ng-model="fruit.scars">Scars</ion-checkbox>
-
-	<h3>Bugs:</h3>
+	<ion-checkbox ng-model="fruit.defoliated">Distorted</ion-checkbox>
+	<ion-checkbox ng-model="fruit.galls">Galls (Raised Areas)</ion-checkbox>
+	<ion-checkbox ng-model="fruit.mold">Rot/Dieback</ion-checkbox>
+	<br>
+	
+	<h3>Stem/Branches/Trunk:</h3>
+	<ion-checkbox ng-model="branches.discolored">Discolored</ion-checkbox>
+	<ion-checkbox ng-model="branches.holes">Holes</ion-checkbox>
+	<ion-checkbox ng-model="branches.mold">Rot/Dieback</ion-checkbox>
+	<ion-checkbox ng-model="branches.sap">Sap Oozing</ion-checkbox>
+	<ion-checkbox ng-model="branches.galls">Galls (Raised Areas)</ion-checkbox>
+	<ion-checkbox ng-model="branches.spots">Spots</ion-checkbox>
+	<br>
+	
+	<h3>Overall Plant</h3>
+	<ion-checkbox ng-model="plant.wilt">Wilt</ion-checkbox>
+	<ion-checkbox ng-model="plant.dieback">Dieback</ion-checkbox>
+	<ion-checkbox ng-model="plant.stunted">Stunted</ion-checkbox>
+	<ion-checkbox ng-model="plant.dead">Dead</ion-checkbox>
+	<ion-checkbox ng-model="plant.healthy">Healthy</ion-checkbox>
+	<ion-checkbox ng-model="plant.distorted">Distorted</ion-checkbox>
+	<br>
+	<ion-checkbox ng-model="plant.multi">Multiple Plants Affected</ion-checkbox>	
+	<br>
+	
+	<h3>Quantifications</h3>
+	<label class="item item-input item-select">
+		<div class="input-label">
+			Number of Pests Observed: 
+		</div>
+		<select>
+		  <option selected>< 10</option>
+		  <option>10 to 50</option>
+		  <option>51 to 100</option>
+		  <option>> 100</option>
+		</select>
+	</label>	
+	<label class="item item-input item-select">
+		<div class="input-label">
+			Percent of Plant Afflicted: 
+		</div>
+		<select>
+		  <option selected>< 10%</option>
+		  <option>10%-25%</option>
+		  <option>26%-50%</option>
+		  <option>51%-75%</option>
+		  <option>76%-100%</option>
+		</select>
+	</label>	
+	<label class="item item-input item-select">
+		<div class="input-label">
+			Number of Plants Afflicted: 
+		</div>
+		<select>
+		  <option selected>1</option>
+		  <option>2-5</option>
+		  <option>6-10</option>
+		  <option>11-20</option>
+		  <option>> 20</option>
+		</select>
+	</label>
+	
+	<h3>Insect Descriptions:</h3>
 	<ion-toggle ng-model="bugs.show">Bugs</ion-toggle>
 	<ion-checkbox ng-show="bugs.show" ng-model="bugs.beetle">Beetle</ion-checkbox>
 	<ion-checkbox ng-show="bugs.show" ng-model="bugs.maggot">Maggot</ion-checkbox>
 	<ion-checkbox ng-show="bugs.show" ng-model="bugs.caterpillar">Caterpillar</ion-checkbox>
 	<ion-checkbox ng-show="bugs.show" ng-model="bugs.moths">Moths</ion-checkbox>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.aphids">Aphids/Mites</ion-checkbox>
-
-	<h3>Stalk/Branches:</h3>
-	<ion-checkbox ng-model="branches.discolored">Discolored</ion-checkbox>
-	<ion-checkbox ng-model="branches.holes">Holes</ion-checkbox>
-	<ion-checkbox ng-model="branches.mold">Mold/Rot</ion-checkbox>
-	<ion-checkbox ng-model="branches.girdled">Girdled</ion-checkbox>
-	<ion-checkbox ng-model="branches.flower">Flower Damage</ion-checkbox>
-	<ion-checkbox ng-model="branches.stunted">Stunted Growth</ion-checkbox>
-	<ion-checkbox ng-model="branches.dead">Dead Plant</ion-checkbox>
-	<ion-checkbox ng-model="branches.multi">Multiple Adjacent Plants Affected</ion-checkbox>
+	<ion-checkbox ng-show="bugs.show" ng-model="bugs.aphids">Aphids/Mites</ion-checkbox>	
 	<br>
-	<br>
+	
 	<p><a class="button button-small icon ion-arrow-right-b" ng-click="submitData()"> Submit</a></p>
   </ion-content>
 </ion-view>
