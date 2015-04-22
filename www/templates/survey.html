@@ -83,11 +83,10 @@
 	
 	<h3>Insect Descriptions:</h3>
 	<ion-toggle ng-model="bugs.show">Bugs</ion-toggle>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.beetle">Beetle</ion-checkbox>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.maggot">Maggot</ion-checkbox>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.caterpillar">Caterpillar</ion-checkbox>
+	<ion-checkbox ng-show="bugs.show" ng-model="bugs.borer">Borer</ion-checkbox>
+	<ion-checkbox ng-show="bugs.show" ng-model="bugs.caterpillar">Caterpillar/Larva</ion-checkbox>
 	<ion-checkbox ng-show="bugs.show" ng-model="bugs.moths">Moths</ion-checkbox>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.aphids">Aphids/Mites</ion-checkbox>	
+	<ion-checkbox ng-show="bugs.show" ng-model="bugs.leafFeeder">Leaf-Feeding Insect</ion-checkbox>	
 	<br>
 	
 	<p><a class="button button-small icon ion-arrow-right-b" ng-click="submitData()"> Submit</a></p>
