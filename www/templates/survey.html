@@ -74,24 +74,24 @@
 		<div class="input-label">
 			Number of Pests Observed: 
 		</div>
-		<select ng-model="pestNumber">
-			<option ng-repeat="item in pest" ng-value="item.id">{{item.val}}</option>
+		<select ng-model="pestNumber" ng-options="opt as opt.val for opt in pest">
+			
 		</select>
 	</label>	
 	<label class="item item-input item-select">
 		<div class="input-label">
 			Percent of Plants Afflicted: 
 		</div>
-		<select ng-model="plantPercent">
-			<option ng-repeat="item in plantPe" ng-value="item.id">{{item.val}}</option>
+		<select ng-model="plantPercent" ng-options="ele as ele.val for ele in plantPe">
+			
 		</select>
 	</label>	
 	<label class="item item-input item-select">
 		<div class="input-label">
 			Number of Plants Afflicted: 
 		</div>
-		<select ng-model="plantNumber">
-			<option ng-repeat="item in plantNo" ng-value="item.id">{{item.val}}</option>
+		<select ng-model="plantNumber" ng-options="plnt as plnt.val for plnt in plantNo">
+			
 		</select>
 	</label>
 	
