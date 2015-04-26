@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
 		console.log("get");
 		leafData();
 		fruitData();
-		bugsData();
+		overallData();
 		branchesData();
 		console.log($scope.leafReq);
 		$scope.page++;
@@ -115,7 +115,7 @@ angular.module('starter.controllers', [])
 		{
 			$scope.leafReq += "0,";
 		}
-		
+			
 		if ($scope.leaf.holes)
 		{
 			$scope.leafReq += "1,";
@@ -123,17 +123,8 @@ angular.module('starter.controllers', [])
 		if (!$scope.leaf.holes)
 		{
 			$scope.leafReq += "0,";
-		}
-		
-		if ($scope.leaf.bites)
-		{
-			$scope.leafReq += "1,";
-		}
-		if (!$scope.leaf.bites)
-		{
-			$scope.leafReq += "0,";
-		}
-		
+		}		
+
 		if ($scope.leaf.spots)
 		{
 			$scope.leafReq += "1,";
@@ -141,7 +132,7 @@ angular.module('starter.controllers', [])
 		if (!$scope.leaf.spots)
 		{
 			$scope.leafReq += "0,";
-		}	
+		}			
 		
 		if ($scope.leaf.defoliated)
 		{
@@ -150,17 +141,17 @@ angular.module('starter.controllers', [])
 		if (!$scope.leaf.defoliated)
 		{
 			$scope.leafReq += "0,";
-		}
-		
-		if ($scope.leaf.leafMold)
+		}		
+
+		if ($scope.leaf.plantMold)
 		{
 			$scope.leafReq += "1,";
 		}
-		if (!$scope.leaf.leafMold)
+		if (!$scope.leaf.plantMold)
 		{
 			$scope.leafReq += "0,";
-		}		
-		
+		}	
+
 		if ($scope.leaf.distorted)
 		{
 			$scope.leafReq += "1,";
@@ -168,204 +159,63 @@ angular.module('starter.controllers', [])
 		if (!$scope.leaf.distorted)
 		{
 			$scope.leafReq += "0,";
-		}		
+		}			
 	}
 	
-	var fruitData = function()
+	var leafData = function()
 	{
-		if ($scope.fruit.discolored)
+		if ($scope.leaf.discolored)
 		{
-			$scope.fruitReq += "1,";
+			$scope.leafReq += "1,";
 		}
-		if (!$scope.fruit.discolored)
+		if (!$scope.leaf.discolored)
 		{
-			$scope.fruitReq += "0,";
+			$scope.leafReq += "0,";
 		}
-		
-		if ($scope.fruit.holes)
+			
+		if ($scope.leaf.holes)
 		{
-			$scope.fruitReq += "1,";
+			$scope.leafReq += "1,";
 		}
-		if (!$scope.fruit.holes)
+		if (!$scope.leaf.holes)
 		{
-			$scope.fruitReq += "0,";
-		}
-		
-		if ($scope.fruit.bites)
-		{
-			$scope.fruitReq += "1,";
-		}
-		if (!$scope.fruit.bites)
-		{
-			$scope.fruitReq += "0,";
-		}
-		
-		if ($scope.fruit.spots)
-		{
-			$scope.fruitReq += "1,";
-		}
-		if (!$scope.fruit.spots)
-		{
-			$scope.fruitReq += "0,";
-		}	
-		
-		if ($scope.fruit.defoliated)
-		{
-			$scope.fruitReq += "1,";
-		}
-		if (!$scope.fruit.defoliated)
-		{
-			$scope.fruitReq += "0,";
-		}
-		
-		if ($scope.fruit.mold)
-		{
-			$scope.fruitReq += "1,";
-		}
-		if (!$scope.fruit.mold)
-		{
-			$scope.fruitReq += "0,";
+			$scope.leafReq += "0,";
 		}		
-		
-		if ($scope.fruit.bumps)
+
+		if ($scope.leaf.spots)
 		{
-			$scope.fruitReq += "1,";
+			$scope.leafReq += "1,";
 		}
-		if (!$scope.fruit.bumps)
+		if (!$scope.leaf.spots)
 		{
-			$scope.fruitReq += "0,";
+			$scope.leafReq += "0,";
+		}			
+		
+		if ($scope.leaf.defoliated)
+		{
+			$scope.leafReq += "1,";
+		}
+		if (!$scope.leaf.defoliated)
+		{
+			$scope.leafReq += "0,";
 		}		
-		
-		if ($scope.fruit.scars)
+
+		if ($scope.leaf.plantMold)
 		{
-			$scope.fruitReq += "1,";
+			$scope.leafReq += "1,";
 		}
-		if (!$scope.fruit.scars)
+		if (!$scope.leaf.plantMold)
 		{
-			$scope.fruitReq += "0,";
+			$scope.leafReq += "0,";
 		}	
-	}
-	
-	var bugsData = function()
-	{
-		if ($scope.bugs.beetle)
-		{
-			$scope.bugsReq += "1,";
-		}
-		if (!$scope.bugs.beetle)
-		{
-			$scope.bugsReq += "0,";
-		}
 
-		if ($scope.bugs.maggot)
+		if ($scope.leaf.distorted)
 		{
-			$scope.bugsReq += "1,";
+			$scope.leafReq += "1,";
 		}
-		if (!$scope.bugs.maggot)
+		if (!$scope.leaf.distorted)
 		{
-			$scope.bugsReq += "0,";
-		}
-
-		if ($scope.bugs.caterpillar)
-		{
-			$scope.bugsReq += "1,";
-		}
-		if (!$scope.bugs.caterpillar)
-		{
-			$scope.bugsReq += "0,";
-		}
-
-		if ($scope.bugs.moths)
-		{
-			$scope.bugsReq += "1,";
-		}
-		if (!$scope.bugs.moths)
-		{
-			$scope.bugsReq += "0,";
-		}
-
-		if ($scope.bugs.aphids)
-		{
-			$scope.bugsReq += "1,";
-		}
-		if (!$scope.bugs.aphids)
-		{
-			$scope.bugsReq += "0,";
-		}
-	}
-
-	var branchesData = function()
-	{
-		if ($scope.branches.discolored)
-		{
-			$scope.branchesReq += "1,";
-		}
-		if (!$scope.branches.discolored)
-		{
-			$scope.branchesReq += "0,";
-		}
-
-		if ($scope.branches.holes)
-		{
-			$scope.branchesReq += "1,";
-		}
-		if (!$scope.branches.holes)
-		{
-			$scope.branchesReq += "0,";
-		}
-
-		if ($scope.branches.mold)
-		{
-			$scope.branchesReq += "1,";
-		}
-		if (!$scope.branches.mold)
-		{
-			$scope.branchesReq += "0,";
-		}
-
-		if ($scope.branches.girdled)
-		{
-			$scope.branchesReq += "1,";
-		}
-		if (!$scope.branches.girdled)
-		{
-			$scope.branchesReq += "0,";
-		}
-
-		if ($scope.branches.flower)
-		{
-			$scope.branchesReq += "1,";
-		}
-		if (!$scope.branches.flower)
-		{
-			$scope.branchesReq += "0,";
-		}
-
-		if ($scope.branches.stunted)
-		{
-			$scope.branchesReq += "1,";
-		}
-		if (!$scope.branches.stunted)
-		{
-			$scope.branchesReq += "0,";
-		}
-
-		if ($scope.branches.dead)
-		{
-			$scope.branchesReq += "1,";
-		}
-		if (!$scope.branches.dead)
-		{
-			$scope.branchesReq += "0,";
-		}
-
-		if ($scope.branches.multi)
-		{
-			$scope.branchesReq += "1,";
-		}
-		if (!$scope.branches.multi)
-		{
-			$scope.branchesReq += "0,";
-		}
+			$scope.leafReq += "0,";
+		}			
 	}
 });
