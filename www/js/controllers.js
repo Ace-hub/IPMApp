@@ -25,15 +25,15 @@ angular.module('starter.controllers', [])
 .controller('ipmSurveyCtrl', function($scope, $stateParams, $http) {	
 	// var path = 'http://10.0.3.2:8080/response?';
 	// var path = 'http://localhost:8080/response?';
-	var path = 'http://web9.uits.uconn.edu/ipmapp/Admin/retrieval.php?';
+	var path = 'http://web9.uits.uconn.edu/ipmapp/Admin/retrieval.php?';	
 	
 	$scope.pest = [{id:1, val: "< 10"}, {id:2, val: "10 to 50"}, {id:3, val:"51 to 100"}, {id:4, val:"> 100"}];
 	$scope.plantPe = [{id:1, val: "< 10%"}, {id:2, val: "10%-25%"}, {id:3, val:"26%-50%"}, {id:4, val:"51%-75%"}, {id:5, val:"76%-100%"}];
-	$scope.plantNo = [{id:1, val: "1"}, {id:2, val: "2-5"}, {id:3, val:"6-10"}, {id:4, val:"11-20"}, {id:5, val:"> 20"}];
+	$scope.plantNo = [{id:1, val: "1"}, {id:2, val: "2-5"}, {id:3, val:"6-10"}, {id:4, val:"11-20"}, {id:5, val:"> 20"}];	
 	
-	$scope.pestNumber = $scope.pest[0];
-	$scope.plantPercent = $scope.plantPe[0];
-	$scope.plantNumber = $scope.plantNo[0];
+	$scope.pestNumber = 1;
+	$scope.plantPercent = 1;
+	$scope.plantNumber = 1;
 	
 	$scope.page = 0;
 	$scope.leaf = {};
@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
 		bugData();
 		console.log($scope.leafReq);
 		$scope.page++;
-		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq + "&bugs=" + $scope.bugsReq + "&branches=" + $scope.branchesReq + "&plant=" + $scope.plantReq + "&pestNum=" + $scope.pestNumber.id + "&plantPerc=" + $scope.plantPercent.id + "&plantNum=" + $scope.plantNumber.id;
+		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq + "&bugs=" + $scope.bugsReq + "&branches=" + $scope.branchesReq + "&plant=" + $scope.plantReq + "&pestNum=" + $scope.pestNumber + "&plantPerc=" + $scope.plantPercent + "&plantNum=" + $scope.plantNumber;
 		console.log(path);
 		
 		$http.get(path).success(function(data) 

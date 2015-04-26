@@ -46,7 +46,7 @@
 </ion-view>
 
 
-<ion-view title="Results" ng-show="page == 1">
+<ion-view title="Survey (cont.)" ng-show="page == 1">
   <ion-content padding="true">
 	<p><a class="button button-small icon ion-arrow-left-b" ng-click="back()"> Back</a></p>
 	<br>
@@ -61,31 +61,11 @@
 	<ion-checkbox ng-model="plant.multi">Multiple Plants Affected</ion-checkbox>	
 	<br>
 	
-	<h3>Quantifications</h3>
-	<label class="item item-input item-select">
-		<div class="input-label">
-			Number of Pests Observed: 
-		</div>
-		<select ng-model="pestNumber" ng-options="z as z.val for z in pest"/>
-	</label>	
-	<label class="item item-input item-select">
-		<div class="input-label">
-			Percent of Plants Afflicted: 
-		</div>
-		<select ng-model="plantPercent" ng-options="x as x.val for x in plantPe"/>
-	</label>	
-	<label class="item item-input item-select">
-		<div class="input-label">
-			Number of Plants Afflicted: 
-		</div>
-		<select ng-model="plantNumber" ng-options="y as y.val for y in plantNo"/>
-	</label>
-	
 	<p><a class="button button-small icon ion-arrow-right-b" ng-click="next()"> Next</a></p>
   </ion-content>
 </ion-view>
 
-<ion-view title="Results" ng-show="page == 2">
+<ion-view title="Survey (cont.)" ng-show="page == 2">
   <ion-content padding="true">
 	<p><a class="button button-small icon ion-arrow-left-b" ng-click="back()"> Back</a></p>
 	<br>
@@ -94,19 +74,25 @@
 		<div class="input-label">
 			Number of Pests Observed: 
 		</div>
-		<select ng-model="pestNumber" ng-options="z as z.val for z in pest"/>
+		<select ng-model="pestNumber">
+			<option ng-repeat="item in pest" ng-value="item.id">{{item.val}}</option>
+		</select>
 	</label>	
 	<label class="item item-input item-select">
 		<div class="input-label">
 			Percent of Plants Afflicted: 
 		</div>
-		<select ng-model="plantPercent" ng-options="x as x.val for x in plantPe"/>
+		<select ng-model="plantPercent">
+			<option ng-repeat="item in plantPe" ng-value="item.id">{{item.val}}</option>
+		</select>
 	</label>	
 	<label class="item item-input item-select">
 		<div class="input-label">
 			Number of Plants Afflicted: 
 		</div>
-		<select ng-model="plantNumber" ng-options="y as y.val for y in plantNo"/>
+		<select ng-model="plantNumber">
+			<option ng-repeat="item in plantNo" ng-value="item.id">{{item.val}}</option>
+		</select>
 	</label>
 	
 	<p><a class="button button-small icon ion-arrow-right-b" ng-click="submitData()"> Submit</a></p>
