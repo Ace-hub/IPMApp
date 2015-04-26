@@ -24,18 +24,39 @@ angular.module('starter.controllers', [])
 
 .controller('ipmSurveyCtrl', function($scope, $stateParams, $http) {	
 	// var path = 'http://10.0.3.2:8080/response?';
-	var path = 'http://localhost:8080/response?';
+	// var path = 'http://localhost:8080/response?';
+	var path = 'http://web9.uits.uconn.edu/ipmapp/Admin/retrieval.php?';
+	
+	$scope.pest = [{id:1, val: "< 10"}, {id:2, val: "10 to 50"}, {id:3, val:"51 to 100"}, {id:4, val:"> 100"}];
+	$scope.plantPe = [{id:1, val: "< 10%"}, {id:2, val: "10%-25%"}, {id:3, val:"26%-50%"}, {id:4, val:"51%-75%"}, {id:5, val:"76%-100%"}];
+	$scope.plantNo = [{id:1, val: "1"}, {id:2, val: "2-5"}, {id:3, val:"6-10"}, {id:4, val:"11-20"}, {id:5, val:"> 20"}];
+	
+	$scope.pestNumber = $scope.pest[0];
+	$scope.plantPercent = $scope.plantPe[0];
+	$scope.plantNumber = $scope.plantNo[0];
+	
 	$scope.page = 0;
 	$scope.leaf = {};
 	$scope.fruit = {};
 	$scope.bugs = {};
 	$scope.branches = {};
+	$scope.plant = {};
 	$scope.leafReq = "";
 	$scope.fruitReq = "";
 	$scope.bugsReq = "";
 	$scope.branchesReq = "";
 	$scope.plantReq = "";
-	$scope.ResultList = [];
+	$scope.ResultList = [];	
+	
+	$scope.next = function()
+	{
+		$scope.page++;
+	}
+	
+	$scope.back = function()
+	{
+		$scope.page--;
+	}
 	
 	$scope.submitData = function()
 	{
@@ -47,8 +68,9 @@ angular.module('starter.controllers', [])
 		bugData();
 		console.log($scope.leafReq);
 		$scope.page++;
-		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq + "&bugs=" + $scope.bugsReq + "&branches=" + $scope.branchesReq + "&plant=" + $scope.plantReq;
+		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq + "&bugs=" + $scope.bugsReq + "&branches=" + $scope.branchesReq + "&plant=" + $scope.plantReq + "&pestNum=" + $scope.pestNumber.id + "&plantPerc=" + $scope.plantPercent.id + "&plantNum=" + $scope.plantNumber.id;
 		console.log(path);
+		
 		$http.get(path).success(function(data) 
 		{
             $scope.response = data;
@@ -156,11 +178,11 @@ angular.module('starter.controllers', [])
 
 		if ($scope.leaf.distorted)
 		{
-			$scope.leafReq += "1,";
+			$scope.leafReq += "1";
 		}
 		if (!$scope.leaf.distorted)
 		{
-			$scope.leafReq += "0,";
+			$scope.leafReq += "0";
 		}			
 	}
 	
@@ -213,11 +235,11 @@ angular.module('starter.controllers', [])
 
 		if ($scope.fruit.mold)
 		{
-			$scope.fruitReq += "1,";
+			$scope.fruitReq += "1";
 		}
 		if (!$scope.fruit.mold)
 		{
-			$scope.fruitReq += "0,";
+			$scope.fruitReq += "0";
 		}			
 	}
 	
@@ -270,11 +292,11 @@ angular.module('starter.controllers', [])
 
 		if ($scope.branches.mold)
 		{
-			$scope.branchesReq += "1,";
+			$scope.branchesReq += "1";
 		}
 		if (!$scope.branches.mold)
 		{
-			$scope.branchesReq += "0,";
+			$scope.branchesReq += "0";
 		}			
 	}
 	
@@ -336,11 +358,11 @@ angular.module('starter.controllers', [])
 
 		if ($scope.plant.multi)
 		{
-			$scope.plantReq += "1,";
+			$scope.plantReq += "1";
 		}
 		if (!$scope.plant.multi)
 		{
-			$scope.plantReq += "0,";
+			$scope.plantReq += "0";
 		}		
 	}
 	
@@ -375,11 +397,11 @@ angular.module('starter.controllers', [])
 		
 		if ($scope.bugs.leafFeeder)
 		{
-			$scope.bugsReq += "1,";
+			$scope.bugsReq += "1";
 		}
 		if (!$scope.bugs.leafFeeder)
 		{
-			$scope.bugsReq += "0,";
+			$scope.bugsReq += "0";
 		}		
 	}
 });

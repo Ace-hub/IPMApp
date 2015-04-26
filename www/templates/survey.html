@@ -1,8 +1,7 @@
 <ion-view title="Survey" ng-show="page == 0">
   <ion-content padding="true">     
     <p><a class="button button-small icon ion-arrow-left-b" href="#/tab/ipm"> Back</a></p>
-	<br>
-	<br>
+	<br>	
 	
 	<h2>Symptoms</h2>
 	
@@ -33,6 +32,24 @@
 	<ion-checkbox ng-model="branches.spots">Spots</ion-checkbox>
 	<br>
 	
+		
+	<h3>Insect Descriptions:</h3>
+	<ion-toggle ng-model="bugs.show">Bugs</ion-toggle>
+	<ion-checkbox ng-show="bugs.show" ng-model="bugs.borer">Borer</ion-checkbox>
+	<ion-checkbox ng-show="bugs.show" ng-model="bugs.caterpillar">Caterpillar/Larva</ion-checkbox>
+	<ion-checkbox ng-show="bugs.show" ng-model="bugs.moths">Moths</ion-checkbox>
+	<ion-checkbox ng-show="bugs.show" ng-model="bugs.leafFeeder">Leaf-Feeding Insect</ion-checkbox>	
+	<br>
+	
+	<p><a class="button button-small icon ion-arrow-right-b" ng-click="next()"> Next</a></p>
+  </ion-content>
+</ion-view>
+
+
+<ion-view title="Results" ng-show="page == 1">
+  <ion-content padding="true">
+	<p><a class="button button-small icon ion-arrow-left-b" ng-click="back()"> Back</a></p>
+	<br>
 	<h3>Overall Plant</h3>
 	<ion-checkbox ng-model="plant.wilt">Wilt</ion-checkbox>
 	<ion-checkbox ng-model="plant.dieback">Dieback</ion-checkbox>
@@ -49,51 +66,54 @@
 		<div class="input-label">
 			Number of Pests Observed: 
 		</div>
-		<select ng-model="pestNumber">
-		  <option value="1" selected>< 10</option>
-		  <option value="2">10 to 50</option>
-		  <option value="3">51 to 100</option>
-		  <option value="4">> 100</option>
-		</select>
+		<select ng-model="pestNumber" ng-options="z as z.val for z in pest"/>
 	</label>	
 	<label class="item item-input item-select">
 		<div class="input-label">
-			Percent of Plant Afflicted: 
+			Percent of Plants Afflicted: 
 		</div>
-		<select ng-model="plantPercent">
-		  <option value="1" selected>< 10%</option>
-		  <option value="2">10%-25%</option>
-		  <option value="3">26%-50%</option>
-		  <option value="4">51%-75%</option>
-		  <option value="5">76%-100%</option>
-		</select>
+		<select ng-model="plantPercent" ng-options="x as x.val for x in plantPe"/>
 	</label>	
 	<label class="item item-input item-select">
 		<div class="input-label">
 			Number of Plants Afflicted: 
 		</div>
-		<select ng-model="plantNumber">
-		  <option value="1" selected>1</option>
-		  <option value="2">2-5</option>
-		  <option value="3">6-10</option>
-		  <option value="4">11-20</option>
-		  <option value="5">> 20</option>
-		</select>
+		<select ng-model="plantNumber" ng-options="y as y.val for y in plantNo"/>
 	</label>
 	
-	<h3>Insect Descriptions:</h3>
-	<ion-toggle ng-model="bugs.show">Bugs</ion-toggle>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.borer">Borer</ion-checkbox>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.caterpillar">Caterpillar/Larva</ion-checkbox>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.moths">Moths</ion-checkbox>
-	<ion-checkbox ng-show="bugs.show" ng-model="bugs.leafFeeder">Leaf-Feeding Insect</ion-checkbox>	
+	<p><a class="button button-small icon ion-arrow-right-b" ng-click="next()"> Next</a></p>
+  </ion-content>
+</ion-view>
+
+<ion-view title="Results" ng-show="page == 2">
+  <ion-content padding="true">
+	<p><a class="button button-small icon ion-arrow-left-b" ng-click="back()"> Back</a></p>
 	<br>
+	<h3>Quantifications</h3>
+	<label class="item item-input item-select">
+		<div class="input-label">
+			Number of Pests Observed: 
+		</div>
+		<select ng-model="pestNumber" ng-options="z as z.val for z in pest"/>
+	</label>	
+	<label class="item item-input item-select">
+		<div class="input-label">
+			Percent of Plants Afflicted: 
+		</div>
+		<select ng-model="plantPercent" ng-options="x as x.val for x in plantPe"/>
+	</label>	
+	<label class="item item-input item-select">
+		<div class="input-label">
+			Number of Plants Afflicted: 
+		</div>
+		<select ng-model="plantNumber" ng-options="y as y.val for y in plantNo"/>
+	</label>
 	
 	<p><a class="button button-small icon ion-arrow-right-b" ng-click="submitData()"> Submit</a></p>
   </ion-content>
 </ion-view>
 
-<ion-view title="Results" ng-show="page == 1">
+<ion-view title="Results" ng-show="page == 3">
   <ion-content padding="true">
     <img src="img/ionic.png" class="ionic-logo">
     <p>
