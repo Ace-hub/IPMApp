@@ -3,7 +3,7 @@
 
     <ion-list>
 
-      <ion-item ng-repeat="ipm in ipms" type="item-text-wrap" ng-click="selectCategory(ipm.id)">
+      <ion-item ng-repeat="ipm in ipms" type="item-text-wrap" ng-click="selectCategory(ipm.name)">
         <h3>{{ipm.name}}</h3>
 		<img ng-src="{{generatePath(ipm.name)}}" style="position: absolute; top: -50%; left: -20%; width: 130%; opacity: .3;"></img>
       </ion-item>

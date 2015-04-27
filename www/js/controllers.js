@@ -49,10 +49,10 @@ angular.module('starter.controllers', [])
 		return "http://web9.uits.uconn.edu/ipmapp/img/" + str.toLowerCase() + ".JPG";
 	}
 	
-	$scope.selectSubcategory = function(id)
+	$scope.selectSubcategory = function(name)
 	{
-		$rootScope.subcategory = id;
-		console.log(id);
+		$rootScope.subcategory = name;
+		console.log(name);
 		location.href = "#/tab/survey";
 	}
 	
@@ -103,7 +103,7 @@ angular.module('starter.controllers', [])
 	$scope.bugsReq = "";
 	$scope.branchesReq = "";
 	$scope.plantReq = "";
-	$scope.ResultList = [];	
+	$rootScope.ResultList = [];	
 	
 	$scope.next = function()
 	{
@@ -125,22 +125,22 @@ angular.module('starter.controllers', [])
 		bugData();
 		console.log($scope.leafReq);
 		$scope.page++;
-		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq + "&bugs=" + $scope.bugsReq + "&branches=" + $scope.branchesReq + "&plant=" + $scope.plantReq + "&pestNum=" + $scope.pestNumber.id + "&plantPerc=" + $scope.plantPercent.id + "&plantNum=" + $scope.plantNumber.id;
+		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq + "&bugs=" + $scope.bugsReq + "&branches=" + $scope.branchesReq + "&plant=" + $scope.plantReq + "&pestNum=" + $scope.pestNumber.id + "&plantPerc=" + $scope.plantPercent.id + "&plantNum=" + $scope.plantNumber.id + "&name=" + $rootScope.name;
 		console.log(path);
 		
 		$http.get(path).success(function(data) 
 		{
-            $scope.response = data;
-			console.log(data);
-			$scope.names = $scope.response.name;
-			$scope.content = $scope.response.content;
+            $scope.response = data.content;
+			console.log(data);			
 			
-			angular.forEach($scope.names, function(obj, key) {
-				if (obj.length > 0)
+			angular.forEach($scope.response, function(obj, key) {				
+				var i = 0;
+				
+				var duplicate = $scope.filterDuplicate(obj);
+				if (!duplicate)
 				{
-					var i = 0;
-					var elem = {Name: obj, Content: "", Help: "http://en.wikipedia.org/wiki/"};
-					var intermediate = elem.Name.split(" ");
+					var elem = {Name: obj.name, Content: obj.text, Help: "http://en.wikipedia.org/wiki/"};
+					var intermediate = elem.Name.replace("(", "").replace(")", "").split(" ");
 					while ( i < intermediate.length-1)
 					{
 						if (i > 0)
@@ -155,24 +155,32 @@ angular.module('starter.controllers', [])
 						intermediate[i] = intermediate[i].toLowerCase();
 					}
 					elem.Help += intermediate[i];
-					console.log(elem.Help);
-					elem.Content = $scope.content[key];
-					$scope.ResultList.push(elem);
+					$rootScope.ResultList.push(elem);					
 				}
-			});		
-			
-			if ($scope.ResultList.length < 1)
+			});			
+			if ($rootScope.ResultList.length < 1)
 			{
 				var empty = {Name: "", Content: "Sorry, no results were returned by this query."};
-				$scope.ResultList.push(empty);
+				$rootScope.ResultList.push(empty);
 			}
-			
-			console.log($scope.ResultList);
+			console.log($rootScope.ResultList);
         }).
 		error(function(data) 
 		{
 			$scope.names = "Sorry, no connection with the server could be established. Please try again later."
 		});
+	}
+	
+	$scope.filterDuplicate = function(obj)
+	{		
+		var add = false;
+		angular.forEach($rootScope.ResultList, function(elem) {			
+			if (elem.Name == obj.name)
+			{					
+				add = true;
+			}
+		});
+		return add;
 	}
 	
 	$scope.back = function()
