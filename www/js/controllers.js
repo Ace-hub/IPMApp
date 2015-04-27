@@ -2,30 +2,70 @@ angular.module('starter.controllers', [])
 
 
 // A simple controller that fetches a list of data from a service
-.controller('ipmIndexCtrl', function($scope, IPMService) {
+.controller('ipmIndexCtrl', function($scope, IPMService, $http, $rootScope) {
 	// "IPMs" is a service returning mock data (services.js)
-	$scope.ipms = IPMService.all();
+	var path = 'http://localhost:8080/categories';
+	$http.get(path).success(function(data) 
+	{
+		$scope.ipms = data.content;
+		console.log($scope.ipms);
+	}).
+	error(function(data) 
+	{
+		$scope.ipms = IPMService.all();
+	});
+	
 	$scope.generatePath = function(str)
 	{
 		return "http://web9.uits.uconn.edu/ipmapp/img/" + str.toLowerCase() + ".JPG";
+	}
+	
+	$scope.selectCategory = function(id)
+	{
+		$rootScope.category = id;
+		console.log(id);
+		location.href = "#/tab/ipm/" + id;
 	}
 })
 
 
 // A simple controller that shows a tapped item's data
-.controller('ipmDetailCtrl', function($scope, $stateParams, IPMService) {
+.controller('ipmDetailCtrl', function($scope, $stateParams, IPMService, $http, $rootScope) {
 	// "IPMs" is a service returning mock data (services.js)
-	$scope.ipm = IPMService.sub();
+	var path = 'http://localhost:8080/subcategories?id=' + $rootScope.category;
+	
+	$http.get(path).success(function(data) 
+	{
+		$scope.ipm = data.content;
+		console.log($scope.ipm);
+	}).
+	error(function(data) 
+	{
+		$scope.ipm = IPMService.sub();
+	});
+	
+	$scope.generatePath = function(str)
+	{
+		return "http://web9.uits.uconn.edu/ipmapp/img/" + str.toLowerCase() + ".JPG";
+	}
+	
+	$scope.selectSubcategory = function(id)
+	{
+		$rootScope.subcategory = id;
+		console.log(id);
+		location.href = "#/tab/survey";
+	}
+	
 	$scope.generatePath = function(str)
 	{
 		return "http://web9.uits.uconn.edu/ipmapp/img/" + str.toLowerCase() + ".JPG";
 	}
 })
 
-.controller('ipmSurveyCtrl', function($scope, $stateParams, $http) {	
+.controller('ipmSurveyCtrl', function($scope, $stateParams, $http, $rootScope) {	
 	// var path = 'http://10.0.3.2:8080/response?';
-	// var path = 'http://localhost:8080/response?';
-	var path = 'http://web9.uits.uconn.edu/ipmapp/Admin/retrieval.php?';	
+	var path = 'http://localhost:8080/response?';
+	// var path = 'http://web9.uits.uconn.edu/ipmapp/Admin/retrieval.php?';	
 	
 	$scope.pest = [
 		{id: 1, val: "< 10"}, 
