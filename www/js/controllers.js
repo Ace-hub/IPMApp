@@ -4,7 +4,9 @@ angular.module('starter.controllers', [])
 // A simple controller that fetches a list of data from a service
 .controller('ipmIndexCtrl', function($scope, IPMService, $http, $rootScope) {
 	// "IPMs" is a service returning mock data (services.js)
-	var path = 'http://localhost:8080/categories';
+	var path = 'http://10.0.3.2:8080/categories';
+	// var path = 'http://localhost:8080/categories';
+	
 	$http.get(path).success(function(data) 
 	{
 		$scope.ipms = data.content;
@@ -32,7 +34,8 @@ angular.module('starter.controllers', [])
 // A simple controller that shows a tapped item's data
 .controller('ipmDetailCtrl', function($scope, $stateParams, IPMService, $http, $rootScope) {
 	// "IPMs" is a service returning mock data (services.js)
-	var path = 'http://localhost:8080/subcategories?id=' + $rootScope.category;
+	var path = 'http://10.0.3.2:8080/subcategories?id=' + $rootScope.category;
+	// var path = 'http://localhost:8080/subcategories?id=' + $rootScope.category;
 	
 	$http.get(path).success(function(data) 
 	{
@@ -63,8 +66,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ipmSurveyCtrl', function($scope, $stateParams, $http, $rootScope) {	
-	// var path = 'http://10.0.3.2:8080/response?';
-	var path = 'http://localhost:8080/response?';
+	var path = 'http://10.0.3.2:8080/response?';
+	// var path = 'http://localhost:8080/response?';
 	// var path = 'http://web9.uits.uconn.edu/ipmapp/Admin/retrieval.php?';	
 	
 	$scope.pest = [
