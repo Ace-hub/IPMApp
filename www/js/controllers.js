@@ -1,12 +1,13 @@
 angular.module('starter.controllers', [])
 
-
 // A simple controller that fetches a list of data from a service
 .controller('ipmIndexCtrl', function($scope, IPMService, $http, $rootScope) {
 	// "IPMs" is a service returning mock data (services.js)
+	// Change the path depending on where the server is located. 
 	var path = 'http://10.0.3.2:8080/categories';
 	// var path = 'http://localhost:8080/categories';
 	
+	// If connection success, load data. Otherwise, use mock data.
 	$http.get(path).success(function(data) 
 	{
 		$scope.ipms = data.content;
@@ -17,11 +18,13 @@ angular.module('starter.controllers', [])
 		$scope.ipms = IPMService.all();
 	});
 	
+	// Generate paths to images on web server.
 	$scope.generatePath = function(str)
 	{
 		return "http://web9.uits.uconn.edu/ipmapp/img/" + str.toLowerCase() + ".JPG";
 	}
 	
+	// Routing for selecting a category. Set the category in root scope.
 	$scope.selectCategory = function(id)
 	{
 		$rootScope.category = id;
@@ -30,13 +33,15 @@ angular.module('starter.controllers', [])
 	}
 })
 
-
 // A simple controller that shows a tapped item's data
 .controller('ipmDetailCtrl', function($scope, $stateParams, IPMService, $http, $rootScope) {
 	// "IPMs" is a service returning mock data (services.js)
+	
+	// Change/uncomment to change server address
 	var path = 'http://10.0.3.2:8080/subcategories?id=' + $rootScope.category;
 	// var path = 'http://localhost:8080/subcategories?id=' + $rootScope.category;
 	
+	// Use mock data is connection failed. Otherwise, load retrieved list.
 	$http.get(path).success(function(data) 
 	{
 		$scope.ipm = data.content;
@@ -47,29 +52,29 @@ angular.module('starter.controllers', [])
 		$scope.ipm = IPMService.sub();
 	});
 	
+	// Generate image paths
 	$scope.generatePath = function(str)
 	{
 		return "http://web9.uits.uconn.edu/ipmapp/img/" + str.toLowerCase() + ".JPG";
 	}
 	
+	// Routing for selecting subcategory, make sure subcategory name is saved in root scope for global use.
 	$scope.selectSubcategory = function(name)
 	{
 		$rootScope.subcategory = name;
 		console.log(name);
 		location.href = "#/tab/survey";
 	}
-	
-	$scope.generatePath = function(str)
-	{
-		return "http://web9.uits.uconn.edu/ipmapp/img/" + str.toLowerCase() + ".JPG";
-	}
 })
 
+// Controller for the survey
 .controller('ipmSurveyCtrl', function($scope, $stateParams, $http, $rootScope) {	
+	// Use path depending on server address location.
 	var path = 'http://10.0.3.2:8080/response?';
 	// var path = 'http://localhost:8080/response?';
 	// var path = 'http://web9.uits.uconn.edu/ipmapp/Admin/retrieval.php?';	
 	
+	// Object arrays for the selection options on quantifications
 	$scope.pest = [
 		{id: 1, val: "< 10"}, 
 		{id: 2, val: "10 to 50"}, 
@@ -91,10 +96,12 @@ angular.module('starter.controllers', [])
 		{id:5, val: "> 20"}
 	];	
 	
+	// Set default selections to first element in list.
 	$scope.pestNumber = $scope.pest[0];
 	$scope.plantPercent = $scope.plantPe[0];
 	$scope.plantNumber = $scope.plantNo[0];
 	
+	// Initialize variables for type
 	$scope.page = 0;
 	$scope.leaf = {};
 	$scope.fruit = {};
@@ -108,6 +115,7 @@ angular.module('starter.controllers', [])
 	$scope.plantReq = "";
 	$rootScope.ResultList = [];	
 	
+	// Function for changing pages
 	$scope.next = function()
 	{
 		$scope.page++;
@@ -118,8 +126,10 @@ angular.module('starter.controllers', [])
 		$scope.page--;
 	}
 	
+	// Function called when  hitting submit for the survey
 	$scope.submitData = function()
 	{
+		// Generate the address call to the REST API on the server
 		console.log("get");
 		leafData();
 		fruitData();
@@ -131,6 +141,7 @@ angular.module('starter.controllers', [])
 		path += "leaf=" + $scope.leafReq + "&fruit=" + $scope.fruitReq + "&bugs=" + $scope.bugsReq + "&branches=" + $scope.branchesReq + "&plant=" + $scope.plantReq + "&pestNum=" + $scope.pestNumber.id + "&plantPerc=" + $scope.plantPercent.id + "&plantNum=" + $scope.plantNumber.id + "&name=" + $rootScope.name;
 		console.log(path);
 		
+		// If the server accepts the request, generate the list of responses by parsing the JSON object received from the server.
 		$http.get(path).success(function(data) 
 		{
             $scope.response = data.content;
@@ -161,6 +172,7 @@ angular.module('starter.controllers', [])
 					$rootScope.ResultList.push(elem);					
 				}
 			});			
+			// In the case of an empty result returned, give empty result message.
 			if ($rootScope.ResultList.length < 1)
 			{
 				var empty = {Name: "", Content: "Sorry, no results were returned by this query."};
@@ -168,12 +180,14 @@ angular.module('starter.controllers', [])
 			}
 			console.log($rootScope.ResultList);
         }).
+		// In the case of an error, print an error mesage.
 		error(function(data) 
 		{
 			$scope.names = "Sorry, no connection with the server could be established. Please try again later."
 		});
 	}
 	
+	// Filter out duplicate pest entries if they exist
 	$scope.filterDuplicate = function(obj)
 	{		
 		var add = false;
@@ -191,12 +205,14 @@ angular.module('starter.controllers', [])
 		$scope.page--;
 	}
 	
+	// Reset the survey
 	$scope.restart = function()
 	{
 		$scope.page = 0;
 		window.location.href = '/#/tab/home';
 	}
 	
+	// Functions that collect the survey inputs and use them to construct the parameter sent to the REST API.
 	var leafData = function()
 	{
 		if ($scope.leaf.discolored)

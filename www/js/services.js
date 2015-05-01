@@ -5,6 +5,7 @@ angular.module('starter.services', [])
  */
 .factory('IPMService', function() {
   // Might use a resource here that returns a JSON array
+  // Generates mock data
   var subcategories = 
     [
         {index: 0, category: "Vegetables", name: "Corn"}, 
